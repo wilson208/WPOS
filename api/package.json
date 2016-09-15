@@ -1,0 +1,27 @@
+{
+  "name": "wpos-api",
+  "version": "0.0.1",
+  "description": "WPOS API Core",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilson208/WPOS.git"
+  },
+  "author": "Wilson McCoubrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wilson208/WPOS/issues"
+  },
+  "homepage": "https://github.com/wilson208/WPOS#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "request": "^2.74.0"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
