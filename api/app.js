@@ -8,7 +8,11 @@ var config      = require('./config');
 
 var app = express();
 
-mongoose.connect(config.database);
+if(process.env.IS_TRAVIS_RUN === "yes"){
+    mongoose.connect(config.travisdatabase);
+}else {
+    mongoose.connect(config.database);
+}
 models.User.find({}).remove();
 
 app.set('secret', config.secret);

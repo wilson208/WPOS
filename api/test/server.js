@@ -25,14 +25,15 @@ describe('API Tests', function() {
         });
         usr.save();
         log.log("Test User Saved To DB");
-        log.success('');
+        log.success('Before Finished');
     });
 
     after(function () {
         models.User.findOneAndRemove({username: "testuser"});
-        log.success("Removed test user");
+        log.log("Removed test user");
         server.close();
-        log.success("Server Stopped");
+        log.log("Server Stopped");
+        log.success('After Finished');
     });
 
     describe('Authentication Endpoint', function() {

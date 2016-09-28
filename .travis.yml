@@ -3,5 +3,11 @@ node_js:
 - '0.11'
 - '0.10'
 env:
-  - TEST_DIR=api
+  - TEST_DIR=api IS_TRAVIS_RUN=yes
 script: cd $TEST_DIR && npm install && npm test
+services:
+- mongodb
+before_script:
+  - sleep 15
+  - mongo use test_db
+  - mongo mydb_test --eval 'db.addUser("travis", "test");'
