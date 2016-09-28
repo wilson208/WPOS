@@ -1,8 +1,5 @@
-var express = require("express");
-var app = express();
+var app = require('./app');
 
-app.get("/test", function(req, res) {
-  res.send(JSON.stringify({ id: 1, name: "Wilson" }));
+app.listen(3000, function(){
+  console.log("Express server listening on port 3000 in %s mode", app.settings.env);
 });
-
-app.listen(3000);
