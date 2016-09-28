@@ -9,5 +9,5 @@ services:
 - mongodb
 before_script:
   - sleep 15
-  - mongo use test_db
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - mongo --eval 'use test_db'
+  - mongo test_db --eval 'db.addUser("travis", "test");'
