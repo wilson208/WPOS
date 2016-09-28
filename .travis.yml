@@ -8,6 +8,5 @@ script: cd $TEST_DIR && npm install && npm test
 services:
 - mongodb
 before_script:
-  - sleep 15
-  - mongo --eval 'use test_db'
-  - mongo test_db --eval 'db.addUser("travis", "test");'
+  - sleep 5
+  - mongo mydb_test --eval 'db.addUser("travis", "test");'
