@@ -176,8 +176,8 @@ describe('API Tests', function() {
             })
         });
 
-        describe('/user/me Endpoint', function(done){
-            it('Should return status 200 and correct details', function(){
+        describe('/user/me Endpoint', function(){
+            it('Should return status 200 and correct details', function(done){
                 chai.request(app)
                     .get('/user/me')
                     .send({ token: token })
