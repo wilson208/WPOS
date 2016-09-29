@@ -17,9 +17,9 @@ models.User.find({}).remove();
 
 app.set('secret', config.secret);
 
+app.use(express.static(__dirname + '/../frontend'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
 
 var routes = express.Router();
 routes.post('/authenticate', function(req, res) {

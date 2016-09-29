@@ -158,20 +158,22 @@ describe('API Tests', function() {
                             username: "anewuser",
                             password: "anewpass"
                         });
-                        usr.save();
+                        usr.save(function(err){
+                            expect(err).to.be.null;
 
-                        //Recount and ensure only 1 is added
-                        chai.request(app)
-                            .get('/users')
-                            .send({ token: token })
-                            .end(function (err, res) {
-                                expect(err).to.be.null;
-                                expect(res).to.have.status(200);
-                                expect(res.body).to.be.a("array");
-                                expect(res.body.length).to.be.eql(originalCount + 1);
+                            //Recount and ensure only 1 is added
+                            chai.request(app)
+                                .get('/users')
+                                .send({ token: token })
+                                .end(function (err, res) {
+                                    expect(err).to.be.null;
+                                    expect(res).to.have.status(200);
+                                    expect(res.body).to.be.a("array");
+                                    expect(res.body.length).to.be.eql(originalCount + 1);
 
-                                done();
-                            });
+                                    done();
+                                });
+                        });
                     });
             })
         });
