@@ -184,7 +184,6 @@ describe('API Tests', function() {
                     .end(function (err, res) {
                         expect(err).to.be.null;
                         expect(res).to.have.status(200);
-                        expect(res.body).to.be.a("array");
                         expect(res.body.username).to.be.eql('testuser');
                         expect(res.body.password).to.be.eql('testpass');
                         done();
